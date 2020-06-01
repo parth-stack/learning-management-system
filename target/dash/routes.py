@@ -1,4 +1,5 @@
-from flask import Blueprint,flash,session,redirect,url_for
+from flask import Blueprint,flash,session,redirect,url_for,render_template,request
+from target.models import Test
 
 dash = Blueprint("dash",__name__)
 
@@ -14,6 +15,8 @@ def route_logout():
 @dash.route("/dashboard")
 def route_dashboard():
     if "user" in session:
-        return "hello mother fucker"
+        page = request.args.get('page', 1, type=int)
+        tests = Test.query.order_by(Test.date_posted.desc()).paginate(page=page, per_page=5)
+        return render_template("dashboard.html",posts=tests)
     else:
         return redirect(url_for("dash.route_logout"))

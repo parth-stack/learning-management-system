@@ -38,5 +38,5 @@ def route_createTest(action):
         question = Question(description=description,optionA=optionA,optionB=optionB,optionC=optionC,optionD=optionD,answer=answer,testId=id2)
         db.session.add(question)
         db.session.commit()
-        return redirect(url_for("dash.route_createTest"))
+        return redirect(url_for("admin.route_createTest"))
     return render_template("createTest.html")

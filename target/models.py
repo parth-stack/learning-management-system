@@ -1,4 +1,5 @@
 from target import db
+from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -12,6 +13,7 @@ class User(db.Model):
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(50))
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)

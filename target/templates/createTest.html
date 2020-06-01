@@ -1,0 +1,29 @@
+{% extends "baap.html" %}
+{% block content %}
+
+<div class="content-section">
+    <form method="POST" action="">
+        <legend class="border-bottom mb-4">To Create Test Add Questions</legend>
+        <div class="form-group">
+        <fieldset>
+            <div><h1>Question</h1></div>
+            <textarea name="question" style="width:600px; height:200px;"></textarea>
+            <div><h3>Option A</h3><input type="text" id="optionA" name="optionA" value="John"></div>
+            <div><h3>Option B</h3><input type="text" id="optionB" name="optionB" value="John"></div>
+            <div><h3>Option C</h3><input type="text" id="optionC" name="optionC" value="John"></div>
+            <div><h3>Option D</h3><input type="text" id="optionD" name="optionD" value="John"></div><br>
+
+            <div><h3>Answer</h3></div>
+            <input type="radio" id="a" name="answer" value="a"> a<br>
+            <input type="radio" id="b" name="answer" value="b"> b<br>
+            <input type="radio" id="c" name="answer" value="c"> c<br>
+            <input type="radio" id="d" name="answer" value="d"> d<br><br>
+            <input type="submit" value="Add Question" class="btn btn-outline-info">
+        </fieldset>
+        </div>
+    </form>
+</div>
+
+<button type="button" onclick="alert('Test Created')" class="btn btn-outline-info"><a href="{{url_for('admin.route_createTest',action='push')}}">Create</a></button>
+
+{% endblock content %}

@@ -11,10 +11,10 @@
             <article class="media content-section">
             <div class="media-body">
                 <div><h3>{{q.description}}</h3></div><br>
-                <h5><input type="radio" id="a" name="answer.{{q.id}}" value="a"> a</h5><br>
-                <h5><input type="radio" id="b" name="answer.{{q.id}}" value="b"> b</h5><br>
-                <h5><input type="radio" id="c" name="answer.{{q.id}}" value="c"> c</h5><br>
-                <h5><input type="radio" id="d" name="answer.{{q.id}}" value="d"> d</h5><br><br>
+                <h5><input type="radio" id="a" name="answer.{{q.id}}" value="a"> {{q.optionA}}</h5><br>
+                <h5><input type="radio" id="b" name="answer.{{q.id}}" value="b"> {{q.optionB}}</h5><br>
+                <h5><input type="radio" id="c" name="answer.{{q.id}}" value="c"> {{q.optionC}}</h5><br>
+                <h5><input type="radio" id="d" name="answer.{{q.id}}" value="d"> {{q.optionD}}</h5><br><br>
             </div>
             </article>
             {% endfor %}

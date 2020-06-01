@@ -24,10 +24,12 @@ def cretae_test(d=None):
 @admin.route("/createTest/<string:action>")
 @admin.route("/createTest",defaults={'action': None},methods=["GET","POST"])
 def route_createTest(action):
+    global id1
     id2 = cretae_test()
     if action!=None:
         print(action)
         id2 = cretae_test("description")
+        id1 = 0
         return redirect(url_for("home.route_home"))
     if action==None and request.method=="POST":
         description = request.form.get("question")

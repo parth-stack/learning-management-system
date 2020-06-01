@@ -1,5 +1,5 @@
 from flask import Blueprint,flash,session,redirect,url_for,render_template,request
-from target.models import Test
+from target.models import Test,Question
 
 dash = Blueprint("dash",__name__)
 
@@ -20,3 +20,15 @@ def route_dashboard():
         return render_template("dashboard.html",posts=tests)
     else:
         return redirect(url_for("dash.route_logout"))
+
+@dash.route("/test/<int:test_id>",methods=["GET","POST"])
+def route_test(test_id):
+    questions = Question.query.filter_by(testId=test_id).all()
+    if request.method=="POST":
+        cache=0
+        for q in questions:
+            if request.form.get("answer."+str(q.id)) == q.answer :
+                cache+=1
+        flash("Your Score : "+str(cache) ,"success")
+        return redirect(url_for("dash.route_dashboard"))
+    return render_template("test.html",questions=questions)

@@ -25,7 +25,8 @@ def cretae_test(d=None):
 @admin.route("/createTest",defaults={'action': None},methods=["GET","POST"])
 def route_createTest(action):
     id2 = cretae_test()
-    if action=="push":
+    if action!=None:
+        print(action)
         id2 = cretae_test("description")
         return redirect(url_for("home.route_home"))
     if action==None and request.method=="POST":

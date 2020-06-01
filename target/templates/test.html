@@ -1,0 +1,26 @@
+{% extends "baap.html" %}
+
+
+{% block content %}
+
+    <form method="POST" action="">
+        <legend class="border-bottom mb-4"><h1>Quiz</h1></legend>
+        <div class="form-group">
+        <fieldset>
+            {% for q in questions %}
+            <article class="media content-section">
+            <div class="media-body">
+                <div><h3>{{q.description}}</h3></div><br>
+                <h5><input type="radio" id="a" name="answer.{{q.id}}" value="a"> a</h5><br>
+                <h5><input type="radio" id="b" name="answer.{{q.id}}" value="b"> b</h5><br>
+                <h5><input type="radio" id="c" name="answer.{{q.id}}" value="c"> c</h5><br>
+                <h5><input type="radio" id="d" name="answer.{{q.id}}" value="d"> d</h5><br><br>
+            </div>
+            </article>
+            {% endfor %}
+            <input type="submit" value="Submit" class="btn btn-outline-info">
+        </fieldset>
+    </div>
+    </form>
+
+{% endblock %}

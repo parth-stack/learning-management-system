@@ -6,7 +6,6 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(120), unique=True, nullable=False)
-
     def __repr__(self):
         return '<User %r>' % self.username
 
@@ -24,3 +23,5 @@ class Question(db.Model):
     optionD = db.Column(db.String(20))
     answer = db.Column(db.String(5), nullable=False)
     testId = db.Column(db.Integer)
+    def __repr__(self):
+        return '<Question %r>' % self.description

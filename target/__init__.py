@@ -21,6 +21,8 @@ def create_app():
     app.register_blueprint(dash)
     from target.admin.routes import admin
     app.register_blueprint(admin)
+    from target.errors.handlers import errors
+    app.register_blueprint(errors)
     
     with app.app_context():
         db.create_all()

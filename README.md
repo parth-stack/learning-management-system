@@ -1,5 +1,6 @@
 # LMS
 
+http://parth-stack-learning-management-system-1.glitch.me/dashboard
 
 a learning management syastem tha lets you host quizzes for your organization you can host different content using this flask website and can also host daily news about your organization.
 --------------
